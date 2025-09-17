@@ -2,6 +2,8 @@
 
 - Created React App usin with Vite
 - Configured Tailwind Css
+- Header
+- Login Form
 
 
 
@@ -18,3 +20,11 @@
 - Netflix GPT
  - Search Bar
  - Movie Suggestion
+
+
+
+
+
+ # libraries
+ - formik.org library for forms
+
