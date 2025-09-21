@@ -3,14 +3,12 @@ import Header from './Header'
 import checkValidateData  from '../utils/validate.jsx'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase.jsx'
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice.jsx';
+import { NETFLIX_BACKGROUND, USER_AVATAR } from '../utils/constants.jsx';
 
 
 const Login = () => {
-
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -34,7 +32,6 @@ const Login = () => {
       email.current.value,
       password.current.value
     );
-    console.log(validationResult);
     setErrorMessage(validationResult.message);
 
     // If validationResult has an error message, stop
@@ -57,7 +54,7 @@ const Login = () => {
         const user = userCredential.user;
         updateProfile(user, {
         displayName: name.current.value, 
-        photoURL: "https://lh3.googleusercontent.com/a/ACg8ocIJuCFIcHIlMrikAY3-0Txh41eYj6ytkvj1xGMqs7u-rlY-MMIm=s200-c"
+        photoURL: USER_AVATAR 
         }).then(() => {
           // Profile updated!
           const {uid, email, displayName, photoURL} = auth.currentUser;
@@ -67,8 +64,6 @@ const Login = () => {
           // An error occurred
           setErrorMessage(error.message);
         });
-        console.log(user);
-        navigate("/browse");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -85,8 +80,6 @@ const Login = () => {
       )
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
-        navigate("/browse");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -101,7 +94,7 @@ const Login = () => {
     <div>
       <Header />
       <div className='absolute'>
-        <img src="https://assets.nflxext.com/ffe/siteui/vlv3/c95abc7a-8124-4630-bb7a-3b160bdc6de3/web/IN-en-20250915-TRIFECTA-perspective_d3d87aa7-58ed-4c6b-98dc-231ed05ba675_large.jpg" alt="Banner-logo" />
+        <img src={NETFLIX_BACKGROUND} alt="Banner-logo" />
       </div> 
       <form onSubmit={(e)=>e.preventDefault()} className='p-16 bg-black/70 absolute w-4/12 my-22 mx-auto right-0 left-0 text-white' action="">
         <h1 className='font-bold text-3xl py-4'>{isSignInForm? 'Sign In': 'Sign Up'}</h1>
