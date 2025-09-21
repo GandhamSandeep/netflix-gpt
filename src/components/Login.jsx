@@ -92,24 +92,75 @@ const Login = () => {
 
   return (
     <div>
-      <Header />
-      <div className='absolute'>
-        <img src={NETFLIX_BACKGROUND} alt="Banner-logo" />
-      </div> 
-      <form onSubmit={(e)=>e.preventDefault()} className='p-16 bg-black/70 absolute w-4/12 my-22 mx-auto right-0 left-0 text-white' action="">
-        <h1 className='font-bold text-3xl py-4'>{isSignInForm? 'Sign In': 'Sign Up'}</h1>
-        {
-          !isSignInForm && (
-            <input ref={name} type="text" placeholder='Full Name' className='p-4 my-4 bg-gray-800 w-full rounded-lg'/>
-          )
-        }
-        <input ref={email} type="email" placeholder='Email address' className='p-4 my-4 bg-gray-800 w-full rounded-lg'/>
-        <input ref={password} type="password" placeholder='Password' className='p-4 my-4 w-full rounded-lg bg-gray-800'/>
-        <p className='text-red-400 font-bold text-lg'>{errorMessage}</p>
-        <button className='p-4 my-6 bg-red-700 text-white rounded-lg w-full' onClick={handleButtonClick}>{isSignInForm ? 'Sign In' : 'Sign Up'}</button>
-        <p className='text-white py-4 cursor-pointer' onClick={toggleSignInForm}>{isSignInForm ? 'New to Netflix? Sign Up Now' : 'Already a Registered sign In Now'}</p>
-      </form>
-    </div>
+  <Header />
+  <div className="absolute inset-0">
+    <img
+      src={NETFLIX_BACKGROUND}
+      alt="Banner-logo"
+      className="w-full h-full object-cover"
+    />
+  </div>
+
+  <form
+    onSubmit={(e) => e.preventDefault()}
+    className="
+      absolute 
+      bg-black/70 text-white
+      w-11/12 sm:w-8/12 md:w-6/12 lg:w-4/12
+      p-6 sm:p-10 md:p-12 lg:p-16
+      mx-auto left-0 right-0
+      my-30 sm:my-16 md:my-20
+      rounded-lg
+    "
+    action=""
+  >
+    <h1 className="font-bold text-2xl sm:text-3xl py-4">
+      {isSignInForm ? "Sign In" : "Sign Up"}
+    </h1>
+
+    {!isSignInForm && (
+      <input
+        ref={name}
+        type="text"
+        placeholder="Full Name"
+        className="p-3 sm:p-4 my-3 sm:my-4 bg-gray-800 w-full rounded-lg"
+      />
+    )}
+
+    <input
+      ref={email}
+      type="email"
+      placeholder="Email address"
+      className="p-3 sm:p-4 my-3 sm:my-4 bg-gray-800 w-full rounded-lg"
+    />
+
+    <input
+      ref={password}
+      type="password"
+      placeholder="Password"
+      className="p-3 sm:p-4 my-3 sm:my-4 bg-gray-800 w-full rounded-lg"
+    />
+
+    <p className="text-red-400 font-bold text-sm sm:text-lg">{errorMessage}</p>
+
+    <button
+      className="p-3 sm:p-4 my-4 sm:my-6 bg-red-700 text-white rounded-lg w-full"
+      onClick={handleButtonClick}
+    >
+      {isSignInForm ? "Sign In" : "Sign Up"}
+    </button>
+
+    <p
+      className="text-white text-sm sm:text-base py-2 sm:py-4 cursor-pointer"
+      onClick={toggleSignInForm}
+    >
+      {isSignInForm
+        ? "New to Netflix? Sign Up Now"
+        : "Already a Registered? Sign In Now"}
+    </p>
+  </form>
+</div>
+
   )
 }
 
