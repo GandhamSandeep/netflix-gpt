@@ -2,7 +2,7 @@ import React from 'react';
 
 const ViedoTitle = ({title, overview}) => {
   return (
-    <div className='pt-90 px-12 absolute text-white bg-gradient-to-r from-black w-screen aspect-video'>
+    <div className='pt-70 px-12 absolute text-white bg-gradient-to-r from-black w-screen aspect-video'>
       <h1 className='text-4xl font-bold'>{title}</h1>
       <p className='py-6 text-lg w-1/4'>{overview}</p>
       <div className='flex gap-2'>

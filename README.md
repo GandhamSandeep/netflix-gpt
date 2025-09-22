@@ -47,6 +47,21 @@
 - Updates Store with Trailer Video Data
 - Embedded the Youtube video and make it autoplay and mute
 - Tailwind Classes to main container look awesome
+- Build Secondary Component
+    - Creating the Movie Suggestion List
+        - MovieList component should be rendered here.
+        - MovieList - Popular Movies
+        - MovieList - Top Rated Movies
+        - MovieList - Upcoming Movies
+        - MoviewList - Now Playing Movies
+        - MoviewsList - Trending Movies
+        - MoviewsList - Horror Movies
+    - Showing the populae movie list on the page
+- Build Movie List
+- Build Movie Card
+- Image TMDB CDN URL 
+- Made the browse page amazing with tailwind css
+- Custom hooks for popular, toprated, trending, upcoming
 
 
 
