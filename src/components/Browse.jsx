@@ -6,8 +6,12 @@ import usePopularMovies from '../custom-hooks/usePopularMovies';
 import useTopRatedMovies from '../custom-hooks/useTopRatedMovies';
 import useUpcomingMovies from '../custom-hooks/useUpcomingMovies';
 import useTrendingMovies from '../custom-hooks/useTrendingMovies';
+import GptSearch from './GptSearch';
+import { useSelector } from 'react-redux';
 
 const Browse = () => {
+
+  const showGptSearch = useSelector(store => store.gpt.showGptSearch);
 
   // Custom Hooks to fetch and set the movies data in the store
   useNowPlayingMovies();
@@ -19,8 +23,12 @@ const Browse = () => {
   return (
     <div>
       <Header />
-      <MainContainer />
-      <SecondaryContainer />
+      { showGptSearch ? <GptSearch /> : 
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      }
       {/* {
         - Main Container
           - Video Background

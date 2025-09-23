@@ -22,3 +22,14 @@ export const  MOVIES_CATEGORIES = [
     { title: "Upcoming", key: "upComingMovies" },
     { title: "Trending", key: "trendingMovies" },
 ];
+
+
+export const SUPPORTED_LANGUAGES = [
+    { identifier: "en", name: "English" },
+    { identifier: "hindi", name: "Hindi" },
+    { identifier: "spanish", name: "Spanish" },
+    { identifier: "french", name: "French" },
+    { identifier: "german", name: "German" },
+    { identifier: "chinese", name: "Chinese" },
+    { identifier: "japanese", name: "Japanese" },
+];

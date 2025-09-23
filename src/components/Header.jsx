@@ -4,13 +4,18 @@ import {useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { addUser, removeUser } from '../utils/userSlice';
-import { NETFLIX_LOGO } from '../utils/constants';
+import { NETFLIX_LOGO, SUPPORTED_LANGUAGES } from '../utils/constants';
 import { AVATAR } from '../utils/constants';
+import { toggleGptSearchView } from '../utils/GptSlice';
+import { changeLanguage } from '../utils/configSlice';
 
 const Header = () => {
   const dispatch = useDispatch();
   
   const navigate = useNavigate();
+
+  const showGptSearch = useSelector(store => store.gpt.showGptSearch);
+  
 
   const user = useSelector(store => store.user);
 
@@ -22,6 +27,17 @@ const Header = () => {
       // An error happened.
       navigate("/error");
     });
+  }
+
+  const handleGPTSearch = () => {
+    // Togglele GPT Search Modal
+    dispatch(toggleGptSearchView());
+  }
+
+  const handleLanguageChange = (e) => {
+    const selectedLanguage = e.target.value;
+    // Dispatch action to update language in the config slice
+    dispatch(changeLanguage(selectedLanguage));
   }
 
     useEffect(() => {
@@ -65,6 +81,18 @@ const Header = () => {
       {/* User Info */}
       {user && (
         <div className="flex items-center gap-1 sm:gap-4 text-white font-semibold cursor-pointer">
+          { showGptSearch &&
+            (<select className='bg-red-500 text-white py-2 px-6 font-semibold rounded-md' name="" id="" onChange={handleLanguageChange}>
+              {
+                SUPPORTED_LANGUAGES.map((lang) => (
+                  <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>
+                ))
+              }
+            </select>  )
+          }
+          <button onClick={handleGPTSearch} className='py-2 px-4 bg-red-500 text-white font-semibold rounded-md cursor-pointer'>
+            { showGptSearch ? "Home" : "GPT Search" }
+          </button>
           <img 
             className="w-12 h-12 sm:w-12 sm:h-12 rounded-full" 
             src={user?.photoURL || AVATAR} 
