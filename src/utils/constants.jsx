@@ -6,7 +6,7 @@ export const API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMDBkMzAwYTFkYTAwMGIzZThlMDNkZGJjNDUzZTI0ZSIsIm5iZiI6MTc1ODQ0ODI3Ny40MDcsInN1YiI6IjY4Y2ZjYTk1OTBjODMxMGY2NmNlYzMwYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mbw5XYDmGLlTKiaFC1cGLIsvyFvdJNbCQJFS2oyNaWc'
+    Authorization: "Bearer " + import.meta.env.VITE_TMDB_KEY
   }
 };
 
@@ -33,3 +33,5 @@ export const SUPPORTED_LANGUAGES = [
     { identifier: "chinese", name: "Chinese" },
     { identifier: "japanese", name: "Japanese" },
 ];
+
+export const OPENAI_GPT_API_KEY = import.meta.env.VITE_OPENAI_GPT_API_KEY;

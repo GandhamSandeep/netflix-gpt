@@ -20,12 +20,14 @@ const Header = () => {
   const user = useSelector(store => store.user);
 
 
+
   const handleSignOut =()=>{
     signOut(auth).then(() => {
       // Sign-out successful.
     }).catch((error) => {
       // An error happened.
       navigate("/error");
+      console.log(error)
     });
   }
 

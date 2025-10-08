@@ -66,6 +66,16 @@
 - GPT Search Bar
 - (Bonus)Building Multilanguage Feature in the app
 - Integrate GPT API's
+- Bonus Mulit-language feature in our App
+- Get Open Apikey
+- GPT Search API all
+- Fetched Movie Suggestion From TMDB
+- Create GptSlice added data
+- Reused Movie list Component to make to make movie suggestion container
+- Memoization
+- Added .env file
+- Added .env file to gitingore
+- Made our Site Responsive
 
 
 

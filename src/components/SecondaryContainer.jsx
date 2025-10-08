@@ -8,7 +8,7 @@ const SecondaryContainer = () => {
 
   return (
     <div className='bg-[#141414] pb-20'>
-      <div className='-mt-42 z-20 relative'>
+      <div className='md:-mt-42 z-20 relative'>
         { MOVIES_CATEGORIES.map(({ title, key }) => (
           <MovieList key={key} title={title} movies={movies?.[key]} /> ))
         }

@@ -26,7 +26,7 @@ const lang = {
     japanese:{
         search: "検索",
         gptSearchPlaceholder: "今日は何を見たいですか？"
-    }   
+    }
 }
 
 export default lang;
