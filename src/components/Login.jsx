@@ -93,7 +93,7 @@ const Login = () => {
   return (
     <div>
   <Header />
-  <div className="absolute inset-0">
+  <div className="absolute inset-0" data-aos="zoom-out">
     <img
       src={NETFLIX_BACKGROUND}
       alt="Banner-logo"
@@ -101,7 +101,7 @@ const Login = () => {
     />
   </div>
 
-  <form
+  <form data-aos="fade-up-left" data-aos-delay="200"
     onSubmit={(e) => e.preventDefault()}
     className="
       absolute 
@@ -114,7 +114,7 @@ const Login = () => {
     "
     action=""
   >
-    <h1 className="font-bold text-2xl sm:text-3xl py-4">
+    <h1 data-aos="fade-down" className="font-bold text-2xl sm:text-3xl py-4">
       {isSignInForm ? "Sign In" : "Sign Up"}
     </h1>
 
@@ -127,30 +127,30 @@ const Login = () => {
       />
     )}
 
-    <input
+    <input data-aos="fade-left"
       ref={email}
       type="email"
       placeholder="Email address"
       className="p-3 sm:p-4 my-3 sm:my-4 bg-gray-800 w-full rounded-lg"
     />
 
-    <input
+    <input data-aos="fade-right"
       ref={password}
       type="password"
       placeholder="Password"
       className="p-3 sm:p-4 my-3 sm:my-4 bg-gray-800 w-full rounded-lg"
     />
 
-    <p className="text-red-400 font-bold text-sm sm:text-lg">{errorMessage}</p>
+    <p data-aos="fade-up" className="text-red-400 font-bold text-sm sm:text-lg">{errorMessage}</p>
 
-    <button
+    <button data-aos="fade-left"
       className="p-3 sm:p-4 my-4 sm:my-6 bg-red-700 text-white rounded-lg w-full"
       onClick={handleButtonClick}
     >
       {isSignInForm ? "Sign In" : "Sign Up"}
     </button>
 
-    <p
+    <p data-aos="fade-up"
       className="text-white text-sm sm:text-base py-2 sm:py-4 cursor-pointer"
       onClick={toggleSignInForm}
     >
