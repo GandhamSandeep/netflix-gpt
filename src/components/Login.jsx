@@ -6,18 +6,21 @@ import { auth } from '../utils/firebase.jsx'
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice.jsx';
 import { NETFLIX_BACKGROUND, USER_AVATAR } from '../utils/constants.jsx';
-
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const dispatch = useDispatch();
 
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  console.log("Render Login Component", errorMessage);
 
 
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
+
+  const [showPassword, setShowPassword] = useState(false);
 
 
   const toggleSignInForm = () => {
@@ -93,7 +96,7 @@ const Login = () => {
   return (
     <div>
   <Header />
-  <div className="absolute inset-0" data-aos="zoom-out">
+  <div className="absolute inset-0" data-aos="zoom-in">
     <img
       src={NETFLIX_BACKGROUND}
       alt="Banner-logo"
@@ -101,7 +104,7 @@ const Login = () => {
     />
   </div>
 
-  <form data-aos="fade-up-left" data-aos-delay="200"
+  <form data-aos="fade-up" data-aos-delay="200"
     onSubmit={(e) => e.preventDefault()}
     className="
       absolute 
@@ -134,12 +137,23 @@ const Login = () => {
       className="p-3 sm:p-4 my-3 sm:my-4 bg-gray-800 w-full rounded-lg"
     />
 
-    <input data-aos="fade-right"
-      ref={password}
-      type="password"
-      placeholder="Password"
-      className="p-3 sm:p-4 my-3 sm:my-4 bg-gray-800 w-full rounded-lg"
-    />
+    <div className="relative w-full">
+      <input
+        data-aos="fade-right"
+        ref={password}
+        type={showPassword ? "text" : "password"}
+        placeholder="Password"
+        className="p-3 sm:p-4 my-3 sm:my-4 bg-gray-800 w-full rounded-lg pr-12"
+      />
+
+      <button
+        type="button"
+        onClick={() => setShowPassword(!showPassword)}
+        className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white cursor-pointer"
+      >
+        {showPassword ? <FaEyeSlash /> : <FaEye />}
+      </button>
+    </div>
 
     <p data-aos="fade-up" className="text-red-400 font-bold text-sm sm:text-lg">{errorMessage}</p>
 
