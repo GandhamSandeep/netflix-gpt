@@ -1,11 +1,11 @@
 import React from 'react'
 import { IMG_CDN_URL } from '../utils/constants'
 
-const MovieCard = ({ posterPath }) => {
+const MovieCard = ({ posterPath, onClick }) => {
   if(!posterPath) return null;
   return (
     <div className='w-36 md:w-48 pr-4'>
-        <img src={ IMG_CDN_URL + posterPath} alt="card image" />
+        <img src={ IMG_CDN_URL + posterPath} alt="card image" onClick={onClick}/>
     </div>
   )
 }
